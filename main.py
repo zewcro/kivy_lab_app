@@ -1,6 +1,8 @@
+from tkinter import Grid
 from kivy.app import App
 from kivy.metrics import dp
 from kivy.uix.anchorlayout import AnchorLayout
+from kivy.properties import StringProperty
 from kivy.uix.stacklayout import StackLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
@@ -11,6 +13,12 @@ from kivy.uix.widget import Widget
 class MainWidget(Widget): 
     pass
 
+
+class WidgetsExample(GridLayout):
+    my_text = StringProperty("Bonjour")
+    def on_button_click(self):
+        print("Button clicked")
+        self.my_text = "Hello , button've just clicked"
 
 class StackLayoutExample(StackLayout):
     def __init__(self, **kwargs):

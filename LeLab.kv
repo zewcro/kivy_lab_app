@@ -1,12 +1,19 @@
-PageLayoutExemple:
+WidgetsExample:
+
+<WidgetsExample>:
+    cols: 3
+    ToggleButton:
+        text:'Cliquez'
+        on_press: root.on_button_click()
+    Label:
+        text: root.my_text
+
 
 <PageLayoutExemple@PageLayout>:
     MainWidget:
     BoxLayoutExample:
     AnchorLayoutExample:
     GridLayoutExample:
-
-
 
 <ScollViewExample@ScrollView>
     StackLayoutExample:
