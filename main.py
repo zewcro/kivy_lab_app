@@ -1,8 +1,9 @@
 from tkinter import Grid
+from xmlrpc.client import Boolean
 from kivy.app import App
 from kivy.metrics import dp
 from kivy.uix.anchorlayout import AnchorLayout
-from kivy.properties import StringProperty
+from kivy.properties import StringProperty, BooleanProperty
 from kivy.uix.stacklayout import StackLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
@@ -17,10 +18,26 @@ class MainWidget(Widget):
 class WidgetsExample(GridLayout):
     compteur = 1
     my_text = StringProperty("Bonjour!")
+    compteur_actif = BooleanProperty(False)
+    
     def on_button_click(self):
-            self.compteur += 1
-            self.my_text = str(self.compteur)
-         
+        if self.compteur_actif: 
+                self.compteur += 1
+                self.my_text = str(self.compteur)
+    
+    
+    def on_toggle_button_state(self, widget):
+        print('toggle state : '+ widget.state ) 
+        if widget.state == "normal": 
+            print("OFF")
+            widget.text = "OFF"
+            self.compteur_actif = False
+        else: 
+            print("ON")
+            widget.text = "ON"
+            self.compteur_actif = True
+
+
          
 class StackLayoutExample(StackLayout):
     def __init__(self, **kwargs):

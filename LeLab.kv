@@ -3,8 +3,14 @@ WidgetsExample:
 <WidgetsExample>:
     cols: 3
     ToggleButton:
+        text: "OFF"
+        on_state: root.on_toggle_button_state(self)
+        size_hint: None, 1
+        width: "100dp"
+    Button:
         text:'Compter'
         on_press: root.on_button_click()
+        disabled: not root.compteur_actif
     Label:
         text: root.my_text
         font_name: 'fonts/Lcd.ttf'
@@ -17,11 +23,11 @@ WidgetsExample:
     AnchorLayoutExample:
     GridLayoutExample:
 
+
 <ScollViewExample@ScrollView>
     StackLayoutExample:
         size_hint: 1, None
         height: self.minimum_height
-
 
 
 <StackLayoutExample>:
