@@ -15,7 +15,7 @@ class MainWidget(Widget):
 class StackLayoutExample(StackLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        for i in range(0,25): 
+        for i in range(0,100): 
             b =  Button(text=str(i+1), size_hint=(None, None), size=(dp(100), dp(100)))
             self.add_widget(b)
             
