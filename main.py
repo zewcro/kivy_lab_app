@@ -15,11 +15,13 @@ class MainWidget(Widget):
 
 
 class WidgetsExample(GridLayout):
-    my_text = StringProperty("Bonjour")
+    compteur = 1
+    my_text = StringProperty("Bonjour!")
     def on_button_click(self):
-        print("Button clicked")
-        self.my_text = "Hello , button've just clicked"
-
+            self.compteur += 1
+            self.my_text = str(self.compteur)
+         
+         
 class StackLayoutExample(StackLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
