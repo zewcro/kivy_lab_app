@@ -1,40 +1,31 @@
 #: import layout_examples layout_examples
 #: import widget_examples widget_examples
 #: import navigation_screen_manager navigation_screen_manager
+#: import boxlayout_with_action_bar boxlayout_with_action_bar 
 
-MyScreenManager:
 
-
-<MyScreenManager@NavigationScreenManager>: 
+<MyScreenManager>: 
     Screen: 
         name: "screen1"
-        BoxLayout: 
+        BoxLayout:
+            Button:
+                text: "aller vers écran images"
+                on_press: app.manager.push("ImagesExample")
             Button: 
-                text: "Aller vers écran images"
-                on_press: root.push("ImagesExample")
-            Button: 
-                text: "Aller vers écran 3"
-                on_press: root.push("screen3")
+                text: "aller vers écran 3"
+                on_press: app.manager.push("screen3")
     Screen: 
         name: "ImagesExample"
-        BoxLayout:
-            orientation: "vertical"
-            ActionBar: 
-                ActionView:
-                    ActionPrevious: 
-                        title: "Images"
-                        on_release: root.pop()
-                        app_icon: "images/lab_logo.png"
-                        app_icon_height: "28dp"
-                        app_icon_width: "28dp"
+        BoxLayoutWithActionBar:
+            title: "Images"
             ImagesExample:
     Screen: 
         name: "screen2"
         Button: 
             text: "Button2"
-            on_press: root.pop()
+            on_press: app.manager.pop()
     Screen: 
         name: "screen3"
-        Button: 
-            text: "Button3"
-            on_press: root.pop()
+        Button:
+            text:"button3"
+            on_press: app.manager.pop()
