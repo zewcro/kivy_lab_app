@@ -1,5 +1,27 @@
 #: import layout_examples layout_examples
 #: import widget_examples widget_examples
+#: import navigation_screen_manager navigation_screen_manager
+
+MyScreenManager:
 
 
-ImagesExample:
+<MyScreenManager@NavigationScreenManager>: 
+    Screen: 
+        name: "screen1"
+        BoxLayout: 
+            Button: 
+                text: "Aller vers écran 2"
+                on_press: root.push("screen2")
+            Button: 
+                text: "Aller vers écran 3"
+                on_press: root.push("screen3")
+    Screen: 
+        name: "screen2"
+        Button: 
+            text: "Button2"
+            on_press: root.pop()
+    Screen: 
+        name: "screen3"
+        Button: 
+            text: "Button3"
+            on_press: root.pop()
