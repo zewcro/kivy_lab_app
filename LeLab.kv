@@ -10,11 +10,24 @@ MyScreenManager:
         name: "screen1"
         BoxLayout: 
             Button: 
-                text: "Aller vers écran 2"
-                on_press: root.push("screen2")
+                text: "Aller vers écran images"
+                on_press: root.push("ImagesExample")
             Button: 
                 text: "Aller vers écran 3"
                 on_press: root.push("screen3")
+    Screen: 
+        name: "ImagesExample"
+        BoxLayout:
+            orientation: "vertical"
+            ActionBar: 
+                ActionView:
+                    ActionPrevious: 
+                        title: "Images"
+                        on_release: root.pop()
+                        app_icon: "images/lab_logo.png"
+                        app_icon_height: "28dp"
+                        app_icon_width: "28dp"
+            ImagesExample:
     Screen: 
         name: "screen2"
         Button: 
